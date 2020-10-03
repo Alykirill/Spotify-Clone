@@ -4,7 +4,16 @@ import './Footer.css'
 const Footer = () => {
     return (
         <div className="footer">
-            <h2>I am the footer</h2>
+            <div className="footer__left">
+                <p>Albom and song details</p>
+            </div>
+            <div className="footer__center">
+                <p>Player controls</p>
+            </div>
+            <div className="footer__right">
+                <p>Volume controls</p>
+            </div>
+
         </div>
     );
 };
