@@ -17,8 +17,8 @@ const Footer = () => {
             <div className="footer__left">
                 <img className="footer__albumLogo" src="https://i.scdn.co/image/ab67616d00004851c380c82f7dfca69200a92dc2" alt=""/>
                 <div className="footer__songInfo">
-                    <h4>Yeah!</h4>
-                    <p>Usher</p>
+                    <h4>London Grammar</h4>
+                    <p>Hey Now</p>
                 </div>
             </div>
 
