@@ -1,18 +1,35 @@
 import React from 'react';
 import './Body.css'
 import Header from "./Header/Header";
+import {useDataLayerValue} from "../../Context/DataLayer";
+import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
+import SongRow from "./SongRow/SongRow";
 
 const Body = ({spotify}) => {
+    const [{discover_weekly}, dispatch] = useDataLayerValue();
+
     return (
         <div className="body">
             <Header spotify = {spotify}/>
             <div className="body__info">
-                {<img src="https://i.scdn.co/image/ab67616d00001e02c380c82f7dfca69200a92dc2" alt=""/>}
+                <img src={discover_weekly?.images[0].url} alt=""/>
                 <div className="body__infoText">
                     <strong>PLAYLIST</strong>
                     <h2>Discover Weekly</h2>
-                    <p>description...</p>
+                    <p>{discover_weekly?.description}</p>
                 </div>
+            </div>
+            <div className="body__songs">
+                <div className="body__icons">
+                    <PlayCircleFilledIcon className="body__shuffle"/>
+                    <FavoriteIcon fontSize="large"/>
+                    <MoreHorizIcon/>
+                </div>
+                {discover_weekly?.tracks.items.map((item) =>(
+                    <SongRow track={item.track}/>
+                ))}
             </div>
         </div>
     );

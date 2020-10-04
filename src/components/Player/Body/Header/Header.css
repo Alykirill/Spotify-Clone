@@ -16,6 +16,7 @@
 }
 
 .header__left > input{
+    outline: none;
     border: none;
     width: 100%;
 }
