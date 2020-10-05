@@ -1,38 +1,66 @@
 export const initialState = {
-    user: null,
-    playlists: [],
-    playing: false,
-    item: null,
-//    token: 'BQCeC5yr2ec05Br0eEuSHLX_eJTc3mWI1r47rePUP_D3jWPbznoc8uAkC8rNo99m4eXwVgFWM5crSvgqvVEoBQW28w2ht3Mh5g8dpvG6UZ0d6qIpX58KSHb9RwoAxkiVl0WPwQtVhD_htPBV8TUSw_jDsxNknRjNr5RF6ZKGFNZVeiB_RJJh'
-}
+  user: null,
+  playlists: [],
+  spotify: null,
+  discover_weekly: null,
+  top_artists: null,
+  playing: false,
+  item: null,
+};
 
 const reducer = (state, action) => {
-    console.log(action)
+  console.log(action);
+  switch (action.type) {
+    case 'SET_USER':
+      return {
+        ...state,
+        user: action.user,
+      };
 
-    switch (action.type) {
-        case 'SET_USER':
-            return {
-                ...state,
-                user: action.user
-            }
-        case 'SET_TOKEN':
-            return {
-                ...state,
-                token: action.token
-            }
-        case 'SET_PLAYLISTS':
-            return {
-                ...state,
-                playlists:action.playlists
-            }
-        case 'SET_DISCOVER_WEEKLY':
-            return{
-                ...state,
-                discover_weekly: action.discover_weekly
-            }
-        default:
-            return state;
-    }
-}
+    case 'SET_PLAYING':
+      return {
+        ...state,
+        playing: action.playing,
+      };
 
-export default reducer
+    case 'SET_ITEM':
+      return {
+        ...state,
+        item: action.item,
+      };
+
+    case 'SET_DISCOVER_WEEKLY':
+      return {
+        ...state,
+        discover_weekly: action.discover_weekly,
+      };
+
+    case 'SET_TOP_ARTISTS':
+      return {
+        ...state,
+        top_artists: action.top_artists,
+      };
+
+    case 'SET_TOKEN':
+      return {
+        ...state,
+        token: action.token,
+      };
+
+    case 'SET_SPOTIFY':
+      return {
+        ...state,
+        spotify: action.spotify,
+      };
+
+    case 'SET_PLAYLISTS':
+      return {
+        ...state,
+        playlists: action.playlists,
+      };
+    default:
+      return state;
+  }
+};
+
+export default reducer;
